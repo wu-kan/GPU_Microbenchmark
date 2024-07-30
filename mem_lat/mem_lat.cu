@@ -12,8 +12,8 @@
 #define THREADS_NUM 4  //HERE, we launch four threads, to ensure that one request is equal to DRAM trascation, 4 thread * 8 bytes = 32 bytes (= min DRAM trascation)
 #define WARP_SIZE 32
 #define ITERS 32768    //1MB of pointer chasing, ITERS*THREADS_NUM*8 bytes
-#define ARRAY_SIZE 917504   //pointer-chasing array size in 64-bit. total array size is 7 MB which larger than L2 cache size (6 MB in Volta) to avoid l2 cache resident from the copy engine
-#define BLOCKS 160
+#define ARRAY_SIZE (48*1024*1024)   //pointer-chasing array size in 64-bit. total array size is 7 MB which larger than L2 cache size (6 MB in Volta, 40MB in Ampere) to avoid l2 cache resident from the copy engine
+#define BLOCKS 512
 #define THREADS_PER_BLOCK 1024
 #define TOTAL_THREADS  BLOCKS*THREADS_PER_BLOCK
 
